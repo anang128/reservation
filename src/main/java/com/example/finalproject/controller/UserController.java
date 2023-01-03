@@ -102,6 +102,27 @@ public class UserController {
 
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
+	@GetMapping("/alluser")
+//	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<?> getAllUser() {
+		
+//		if (request.isUserInRole("ROLE_ADMIN")) {
+//			return ResponseEntity.ok(userRepository.findAll());
+//	    }
+		List<User> user = userRepository.findAll();
+		
+		
+		
+		return ResponseEntity.ok(user);
+	
+		
+		//userRepository.findAll();
+//		List<User> dataArrUser = new ArrayList<>() ;
+//		for(User dataArrUser : userRepository.findAll()){
+//			dataArrUser.add(new BusRequest(dataArr.getId(), dataArr.getCapacity(), dataArr.getCode(), dataArr.getMake(), dataArr.getAgency().getId()));
+//		}
+//        return ResponseEntity.ok(userRepository.findAll());
+	}
 	
 
 
